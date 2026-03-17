@@ -1,0 +1,56 @@
+<div class="sites-batiments-container">
+  <div class="map-overlay">
+    <div class="search-box card">
+      <i class="search-icon">🔍</i>
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="onSearchInput()"
+          (keyup.enter)="searchNeighborhood()"
+          placeholder="Rechercher un quartier ou lieu..."
+          [disabled]="isSearching"
+        >
+        <!-- Suggestions Dropdown -->
+        <ul class="suggestions-list" *ngIf="suggestions.length > 0">
+          <li *ngFor="let suggestion of suggestions">
+            <button 
+              type="button"
+              (click)="selectSuggestion(suggestion)"
+              (keyup.enter)="selectSuggestion(suggestion)"
+            >
+              {{ suggestion.display_name }}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <button (click)="searchNeighborhood()" class="search-btn" [disabled]="isSearching">
+        {{ isSearching ? '...' : 'Localiser' }}
+      </button>
+      <div *ngIf="searchError" class="search-error">
+        {{ searchError }}
+      </div>
+    </div>
+
+    <div class="map-info-card card">
+      <h3>Résumé Cartographique</h3>
+      <p>Visualisez l'impact écologique par quartier à Rennes.</p>
+      <div class="legend">
+        <div class="legend-item">
+          <span class="dot high"></span>
+          <span>Élevé (>8 t)</span>
+        </div>
+        <div class="legend-item">
+          <span class="dot medium"></span>
+          <span>Moyen (6-8 t)</span>
+        </div>
+        <div class="legend-item">
+          <span class="dot low"></span>
+          <span>Bas (<6 t)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+</div>

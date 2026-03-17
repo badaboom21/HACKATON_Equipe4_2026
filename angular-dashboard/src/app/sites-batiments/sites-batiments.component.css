@@ -1,0 +1,247 @@
+.sites-batiments-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh);
+  background-color: var(--bg-dark);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: none; /* Let clicks pass through gaps */
+}
+
+.map-overlay .card {
+  pointer-events: auto; /* Re-enable clicks for cards */
+  max-width: 320px;
+  background-color: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px !important;
+  position: relative;
+  z-index: 1002; /* Higher than map-info-card */
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: -40px;
+  right: -80px;
+  background-color: rgba(20, 20, 20, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--accent-green);
+  border-radius: 12px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 0;
+}
+
+.suggestions-list li button {
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+}
+
+.suggestions-list li button:hover,
+.suggestions-list li button:focus {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green);
+}
+
+.search-btn {
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.search-btn:disabled {
+  background-color: var(--bg-surface-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.search-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #f43f5e;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 0 0 8px 8px;
+  margin-top: -4px;
+  z-index: -1;
+  text-align: center;
+}
+
+.map-info-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--accent-green);
+}
+
+.map-info-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.high { background-color: #f43f5e; }
+.dot.medium { background-color: #f59e0b; }
+.dot.low { background-color: #10b981; }
+
+/* Custom Leaflet Dark Mode Adjustments */
+::ng-deep .leaflet-popup-content-wrapper, 
+::ng-deep .leaflet-popup-tip {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 12px !important;
+  padding: 0;
+}
+
+::ng-deep .leaflet-popup-content {
+  margin: 0 !important;
+  width: 220px !important;
+}
+
+::ng-deep .map-popup {
+  padding: 16px;
+}
+
+::ng-deep .map-popup h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--accent-green);
+}
+
+::ng-deep .popup-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+::ng-deep .stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+::ng-deep .stat-item .label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+::ng-deep .stat-item .value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+::ng-deep .trend.positive { color: var(--accent-green); }
+::ng-deep .trend.negative { color: #f43f5e; }
+
+::ng-deep .action-btn {
+  width: 100%;
+  background-color: var(--bg-surface-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+::ng-deep .action-btn:hover {
+  background-color: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+::ng-deep .leaflet-bar a {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+::ng-deep .leaflet-bar a:hover {
+  background-color: var(--bg-surface-light) !important;
+}

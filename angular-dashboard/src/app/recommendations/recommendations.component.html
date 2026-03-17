@@ -1,0 +1,26 @@
+<div class="recommendations-container">
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Recommandations Écologiques</h1>
+      <p>Découvrez des conseils et articles pour réduire l'empreinte carbone de votre quartier.</p>
+    </div>
+  </header>
+
+  <div class="articles-grid">
+    <div *ngFor="let article of articles" class="article-card" (click)="openArticle(article.sourceUrl)" tabindex="0" (keydown.enter)="openArticle(article.sourceUrl)">
+      <div class="article-image">
+        <img [src]="article.imageUrl" [alt]="article.title">
+        <div class="article-overlay">
+          <span class="source-tag">Source externe</span>
+        </div>
+      </div>
+      <div class="article-content">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.summary }}</p>
+        <div class="article-footer">
+          <span class="read-more">Lire l'article complet →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
