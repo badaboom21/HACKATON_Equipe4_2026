@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-dark: #121212;
+  --bg-surface: #1e1e1e;
+  --bg-surface-light: #2c2c2c;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-green: #10b981;
+  --accent-green-hover: #059669;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  height: 100%;
+  width: 100%;
+}
+
+/* Reusable Utility Classes */
+.card {
+  background-color: var(--bg-surface);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.1); /* subtle green glow on hover */
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text-accent {
+  color: var(--accent-green);
+}

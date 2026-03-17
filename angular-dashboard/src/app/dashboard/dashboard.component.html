@@ -1,0 +1,77 @@
+<header class="top-header">
+  <div class="header-title">
+    <h1>Quartier La Courrouze, Rennes</h1>
+    <p>Bilan Carbone Global - Vue d'ensemble du site écologique</p>
+  </div>
+</header>
+
+<div class="dashboard-scroll">
+  <!-- KPIs -->
+  <section class="kpi-grid">
+    <div class="card kpi-card">
+      <span class="kpi-label">CO₂ Total (Est.)</span>
+      <span class="kpi-value text-accent">1,250 tCO₂e</span>
+      <span class="kpi-trend positive"
+        >▼ -5.2% par rapport au mois dernier</span
+      >
+    </div>
+    <div class="card kpi-card">
+      <span class="kpi-label">CO₂ par m² (Bâtiment)</span>
+      <span class="kpi-value">42 kgCO₂e</span>
+      <span class="kpi-trend" style="color: var(--text-secondary)"
+        >Objectif ADEME respecté</span
+      >
+    </div>
+    <div class="card kpi-card">
+      <span class="kpi-label">CO₂ par Employé/Habitant</span>
+      <span class="kpi-value">1.8 tCO₂e</span>
+      <span class="kpi-trend" style="color: var(--text-secondary)"
+        >Comparaison locale</span
+      >
+    </div>
+  </section>
+
+  <!-- Main Grid with Photo and Chart -->
+  <section class="content-grid">
+    <!-- Photo and Info -->
+    <div class="card photo-card">
+      <img
+        src="assets/la_courrouze.png"
+        alt="Éco-quartier La Courrouze"
+        class="neighborhood-photo"
+      />
+      <div class="photo-overlay">
+        <h3>La Courrouze - Secteur Dominos</h3>
+        <p>Superficie: 115 hectares • Projet HQE • Focus sur la biodiversité</p>
+      </div>
+    </div>
+
+    <!-- Doughnut Chart (Construction vs Exploitation) -->
+    <div class="card chart-card">
+      <h3>Répartition de l'Empreinte (tCO₂e)</h3>
+      <div class="chart-container">
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [type]="doughnutChartType"
+          [options]="doughnutChartOptions"
+        >
+        </canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom row: Bar Chart - Matériaux -->
+  <section class="card chart-card">
+    <h3>Proportion CO₂ par Matériaux de Construction</h3>
+    <div style="height: 300px; width: 100%; position: relative">
+      <canvas
+        baseChart
+        [data]="barChartData"
+        [type]="barChartType"
+        [options]="barChartOptions"
+      >
+      </canvas>
+    </div>
+  </section>
+</div>

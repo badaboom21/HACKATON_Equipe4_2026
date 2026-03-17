@@ -1,0 +1,207 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Saisie des Relevés</h2>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="needs-validation"
+    novalidate
+  >
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="surfaceSite" class="form-label">Surface du Site (m²)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="surfaceSite"
+          formControlName="surfaceSite"
+          [class.is-invalid]="submitted && f['surfaceSite'].invalid"
+          placeholder="Ex: 1500.50"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['surfaceSite'].errors"
+        >
+          <div *ngIf="f['surfaceSite'].errors?.['required']">
+            La surface du site est requise.
+          </div>
+          <div *ngIf="f['surfaceSite'].errors?.['pattern']">
+            Format invalide (ex: 1500.50).
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="placesParking" class="form-label"
+          >Nombre de Places de Parking</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="placesParking"
+          formControlName="placesParking"
+          [class.is-invalid]="submitted && f['placesParking'].invalid"
+          placeholder="Ex: 50"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['placesParking'].errors"
+        >
+          <div *ngIf="f['placesParking'].errors?.['required']">
+            Le nombre de places est requis.
+          </div>
+          <div *ngIf="f['placesParking'].errors?.['min']">
+            Doit être positif.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="consoEnergetique" class="form-label"
+          >Consommation Énergétique (kWh)</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="consoEnergetique"
+          formControlName="consoEnergetique"
+          [class.is-invalid]="submitted && f['consoEnergetique'].invalid"
+          placeholder="Ex: 25000.75"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['consoEnergetique'].errors"
+        >
+          <div *ngIf="f['consoEnergetique'].errors?.['required']">
+            La consommation énergétique est requise.
+          </div>
+          <div *ngIf="f['consoEnergetique'].errors?.['pattern']">
+            Format invalide (ex: 25000.75).
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="anneeConsommation" class="form-label"
+          >Année de Consommation</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="anneeConsommation"
+          formControlName="anneeConsommation"
+          [class.is-invalid]="submitted && f['anneeConsommation'].invalid"
+          placeholder="Ex: 2023"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['anneeConsommation'].errors"
+        >
+          L'année est requise.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nombreEmployes" class="form-label">Nombre d'Employés</label>
+        <input
+          type="number"
+          class="form-control"
+          id="nombreEmployes"
+          formControlName="nombreEmployes"
+          [class.is-invalid]="submitted && f['nombreEmployes'].invalid"
+          placeholder="Ex: 100"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['nombreEmployes'].errors"
+        >
+          <div *ngIf="f['nombreEmployes'].errors?.['required']">
+            Le nombre d'employés est requis.
+          </div>
+          <div *ngIf="f['nombreEmployes'].errors?.['min']">
+            Doit être au moins 1.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="noteEmployes" class="form-label"
+          >Note sur les Employés</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="noteEmployes"
+          formControlName="noteEmployes"
+          placeholder="Ex: Données approximatives"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nombrePostesWs" class="form-label"
+          >Nombre de Postes de Travail</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="nombrePostesWs"
+          formControlName="nombrePostesWs"
+          [class.is-invalid]="submitted && f['nombrePostesWs'].invalid"
+          placeholder="Ex: 80"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['nombrePostesWs'].errors"
+        >
+          <div *ngIf="f['nombrePostesWs'].errors?.['required']">
+            Le nombre de postes est requis.
+          </div>
+          <div *ngIf="f['nombrePostesWs'].errors?.['min']">
+            Doit être au moins 1.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="typeMateriau" class="form-label">Type de Matériau</label>
+        <input
+          type="text"
+          class="form-control"
+          id="typeMateriau"
+          formControlName="typeMateriau"
+          [class.is-invalid]="submitted && f['typeMateriau'].invalid"
+          placeholder="Ex: Béton armé"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && f['typeMateriau'].errors"
+        >
+          <div *ngIf="f['typeMateriau'].errors?.['required']">
+            Le type de matériau est requis.
+          </div>
+          <div *ngIf="f['typeMateriau'].errors?.['minlength']">
+            Au moins 5 caractères.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary">Soumettre</button>
+      <button type="button" class="btn btn-secondary" (click)="onReset()">
+        Réinitialiser
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="savedData" class="mt-4">
+    <h3>Données Sauvegardées</h3>
+    <pre>{{ savedData | json }}</pre>
+  </div>
+</div>

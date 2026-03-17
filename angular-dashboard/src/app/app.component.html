@@ -1,0 +1,23 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-icon">E4</div>
+      <div class="sidebar-title">HACKATON EQUIPE 4 DEVS</div>
+    </div>
+    <ul class="nav-links">
+      <li routerLink="/dashboard" routerLinkActive="active">Tableau de bord</li>
+      <li>Sites et Bâtiments</li>
+      <li routerLink="/saisie-releves" routerLinkActive="active">
+        Saisie des relevés
+      </li>
+      <li>Rapports</li>
+      <li>Paramètres</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
