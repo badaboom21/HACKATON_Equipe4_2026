@@ -18,26 +18,14 @@
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background-color: var(--accent-green);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.sidebar-title {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.2;
+.logo-img {
+  height: 150px;
+  width: auto;
+  max-width: 100%;
 }
 
 .nav-links {
